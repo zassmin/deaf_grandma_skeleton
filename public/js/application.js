@@ -1,11 +1,12 @@
 $(document).ready(function() {
-  $('form').click(function(event) {
+  $('p').hide();
+  $('form').submit(function(event) {
     event.preventDefault();
     $.ajax({
       type: "POST", 
       url: "/",
-      data: $('form').serialize() 
-    }).done(return data;);
+      data: $('input').serialize()
+    }).done(function(data) { $('p').show().append(data); })
   });
 });
 
